@@ -1,3 +1,272 @@
 [gd_scene format=3 uid="uid://boidy3qle0fv4"]
 
+[ext_resource type="Script" uid="uid://foaxlysdmbq3" path="res://scripts/lore.gd" id="1_qel7j"]
+[ext_resource type="Texture2D" uid="uid://bgedrw0pvpufy" path="res://resources/textures/non_active_tab.png" id="1_sohhm"]
+[ext_resource type="Texture2D" uid="uid://yyrurmfdbvl1" path="res://resources/textures/active_tab.png" id="2_qel7j"]
+[ext_resource type="FontFile" uid="uid://c8jeuopyf12c7" path="res://resources/fonts/Monocraft.otf" id="4_oo4qk"]
+[ext_resource type="Texture2D" uid="uid://ds1c3ubewkmct" path="res://resources/textures/arrow_pressed.png" id="5_fiw8w"]
+[ext_resource type="Texture2D" uid="uid://2axogn1gut28" path="res://resources/textures/lumen_portrait.png" id="6_xhytr"]
+[ext_resource type="Texture2D" uid="uid://b4e3it5omgjst" path="res://resources/icons/icon32x.png" id="7_g7dn5"]
+[ext_resource type="Texture2D" uid="uid://cwpfbihrn7a2s" path="res://resources/textures/doctor_portrait.png" id="7_ldtwi"]
+
 [node name="Lore" type="Node2D" unique_id=1898827639]
+script = ExtResource("1_qel7j")
+
+[node name="historyTab" type="TextureButton" parent="." unique_id=1935842736]
+offset_left = 200.0
+offset_top = 5.0
+offset_right = 400.0
+offset_bottom = 50.0
+toggle_mode = true
+button_pressed = true
+texture_normal = ExtResource("1_sohhm")
+texture_pressed = ExtResource("2_qel7j")
+stretch_mode = 6
+
+[node name="historyTabLabel" type="Label" parent="historyTab" unique_id=383464113]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_oo4qk")
+theme_override_font_sizes/font_size = 32
+text = "История"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="dossierTab" type="TextureButton" parent="." unique_id=1919737666]
+offset_left = 400.0
+offset_top = 5.0
+offset_right = 600.0
+offset_bottom = 50.0
+toggle_mode = true
+texture_normal = ExtResource("1_sohhm")
+texture_pressed = ExtResource("2_qel7j")
+stretch_mode = 6
+
+[node name="dossierTabLabel" type="Label" parent="dossierTab" unique_id=1847523293]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_oo4qk")
+theme_override_font_sizes/font_size = 32
+text = "Досье"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="organizationTab" type="TextureButton" parent="." unique_id=1442768845]
+offset_left = 600.0
+offset_top = 5.0
+offset_right = 800.0
+offset_bottom = 50.0
+toggle_mode = true
+texture_normal = ExtResource("1_sohhm")
+texture_pressed = ExtResource("2_qel7j")
+stretch_mode = 6
+
+[node name="organizationTabLabel" type="Label" parent="organizationTab" unique_id=504338680]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_oo4qk")
+theme_override_font_sizes/font_size = 24
+text = "Организация"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="homeTab" type="TextureButton" parent="." unique_id=1322074393]
+offset_left = -100.0
+offset_top = 5.0
+offset_right = 100.0
+offset_bottom = 50.0
+texture_normal = ExtResource("1_sohhm")
+texture_pressed = ExtResource("2_qel7j")
+stretch_mode = 6
+
+[node name="homeArrow" type="TextureRect" parent="homeTab" unique_id=1461437077]
+layout_mode = 0
+offset_left = 130.0
+offset_top = 10.0
+offset_right = 165.0
+offset_bottom = 45.0
+texture = ExtResource("5_fiw8w")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1911715914]
+offset_top = 50.0
+offset_right = 1280.0
+offset_bottom = 55.0
+color = Color(1, 1, 0.39215687, 1)
+
+[node name="history" type="ScrollContainer" parent="." unique_id=1282083746]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 40.0
+offset_top = 60.0
+offset_right = 1240.0
+offset_bottom = 715.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 3
+
+[node name="historyLabel" type="Label" parent="history" unique_id=1521130840]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(1, 1, 0.39215687, 1)
+theme_override_fonts/font = ExtResource("4_oo4qk")
+theme_override_font_sizes/font_size = 32
+text = "1970-е. Альтернативный мир, в котором нет религии. Вместо нее - магия, которую изучают как науку. Церковь здесь не храм, а организация, занимающаяся изучением этой науки. Священники - ученые, работающие на церковь. Экзорцизм - прикладная дисциплина вроде хирургии, но для души. Главный герой - экзорцист, который изгоняет из людей демонов.
+
+Когда человек теряет веру (не в Бога - религии нет, а в себя, в людей, в будущее), он впадает в отчаяние. Тогда в его сознании начинает говорить голос. Он звучит как его собственный, но он не принадлежит ему. Это состояние можно сравнить с шизофренией. Голос обещает избавление, выход, покой. И человек добровольно соглашается.
+
+Этот голос принадлежит дьяволу. Его цель - заполучить душу человека. Такое явление называется \"Феномен сделки\". При нем человек становится одержимым демоном.
+
+Церковь точно не знает, почему это происходит. Официально это считается психическим расстройством. В народе ходят слухи о продаже души.
+
+Работа экзорцистов заключается в изгнании демона из разума одержимого путём прямого воздействия на подсознание человека. Процесс изгнания демона называется осадой."
+autowrap_mode = 2
+text_direction = 1
+
+[node name="dossier" type="Control" parent="." unique_id=2103014384]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+
+[node name="dossierPortrait" type="TextureButton" parent="dossier" unique_id=6518627]
+layout_mode = 0
+offset_left = 200.0
+offset_top = 60.0
+offset_right = 350.0
+offset_bottom = 260.0
+toggle_mode = true
+texture_normal = ExtResource("6_xhytr")
+texture_pressed = ExtResource("7_ldtwi")
+stretch_mode = 5
+
+[node name="dossierLabel" type="Label" parent="dossier" unique_id=1899969195]
+layout_mode = 0
+offset_left = 390.0
+offset_top = 60.0
+offset_right = 1582.0
+offset_bottom = 276.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(1, 1, 0.39215687, 1)
+theme_override_fonts/font = ExtResource("4_oo4qk")
+theme_override_font_sizes/font_size = 32
+text = "Имя: Войд Люмен
+Возраст: 27 лет
+Должность: Священник
+Направление: Экзорцизм
+"
+autowrap_mode = 2
+text_direction = 1
+
+[node name="dossierInfo" type="ScrollContainer" parent="dossier" unique_id=1980645370]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 40.0
+offset_top = 300.0
+offset_right = 1240.0
+offset_bottom = 720.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 3
+
+[node name="dossierInfoLabel" type="Label" parent="dossier/dossierInfo" unique_id=1821687703]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(1, 1, 0.39215687, 1)
+theme_override_fonts/font = ExtResource("4_oo4qk")
+theme_override_font_sizes/font_size = 32
+text = "Внешность: лицо суровое, но не злое. Глаза уставшие, есть лёгкая щетина. Одет в поношенный костюм, плащ и шляпу. Галстук всегда ослаблен, верхняя пуговица рубашки расстегнута. Во время осады принимает образ чумного доктора.
+
+Характер: серьезный, но не мрачный. В работе холоден и расчетлив. Страха не показывает, даже когда внутри все идет не по плану. Чувство юмора ироничное.
+
+Особенности: курит дешевые сигареты. Не берет денег за осаду. Считает, что каждый имеет право на помощь. Жизнь других приоритетнее собственной.
+
+Примечание: любит гранатовый сок"
+autowrap_mode = 2
+text_direction = 1
+
+[node name="organization" type="Control" parent="." unique_id=1524435304]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+
+[node name="churchEmblem" type="TextureRect" parent="organization" unique_id=568210594]
+layout_mode = 0
+offset_left = 200.0
+offset_top = 60.0
+offset_right = 350.0
+offset_bottom = 210.0
+texture = ExtResource("7_g7dn5")
+
+[node name="organizationLabel" type="Label" parent="organization" unique_id=959268872]
+layout_mode = 0
+offset_left = 390.0
+offset_top = 60.0
+offset_right = 1582.0
+offset_bottom = 276.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(1, 1, 0.39215687, 1)
+theme_override_fonts/font = ExtResource("4_oo4qk")
+theme_override_font_sizes/font_size = 32
+text = "Название: Церковь
+Тип: Научно-исследовательская организация
+Основана: неизвестно
+Статус: действует"
+autowrap_mode = 2
+text_direction = 1
+
+[node name="organizationInfo" type="ScrollContainer" parent="organization" unique_id=2017947232]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 40.0
+offset_top = 250.0
+offset_right = 1240.0
+offset_bottom = 720.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 3
+
+[node name="organizationInfoLabel" type="Label" parent="organization/organizationInfo" unique_id=1632206488]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(1, 1, 0.39215687, 1)
+theme_override_fonts/font = ExtResource("4_oo4qk")
+theme_override_font_sizes/font_size = 32
+text = "Церковь - не религиозное учреждение, а научно-исследовательская организация. Её главная задача - изучение магии и применение этих знаний на практике.
+
+На данный момент церковь сосредоточена на устранении угрозы, а не на поиске её первопричин. Феномен сделки остаётся необъяснённым, но это не мешает бороться с его последствиями.
+
+Экзорцисты работают на выездах. Они прибывают к одержимому на дом, проводят осаду и уезжают. Это опасная работа, так как в случае провала экзорцист сам становится одержимым. Его либо пытаются вылечить, либо сжигают на костре.
+
+Люмен Войд - один из действующих экзорцистов. Он работает безвозмездно, что вызывает у церкви вопросы. Но его не трогают, так как он считается почётным работником."
+autowrap_mode = 2
+text_direction = 1
+
+[connection signal="button_down" from="historyTab" to="." method="_on_history_tab_button_down"]
+[connection signal="button_down" from="dossierTab" to="." method="_on_dossier_tab_button_down"]
+[connection signal="button_down" from="organizationTab" to="." method="_on_organization_tab_button_down"]
+[connection signal="button_down" from="homeTab" to="." method="_on_home_tab_button_down"]
+[connection signal="button_up" from="homeTab" to="." method="_on_home_tab_button_up"]

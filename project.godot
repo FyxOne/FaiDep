@@ -10,17 +10,18 @@ config_version=5
 
 [application]
 
-config/name="FaiDep"
+config/name="Faith:Depleted"
 run/main_scene="res://scenes/menu.tscn"
 config/features=PackedStringArray("4.7", "GL Compatibility")
-config/icon="res://icon.svg"
+boot_splash/bg_color=Color(0.05882353, 0, 0.19607843, 1)
+boot_splash/image="uid://dnfdvon1iopyd"
+config/icon="uid://dnfdvon1iopyd"
 
 [display]
 
 window/size/viewport_width=1280
 window/size/viewport_height=720
 window/stretch/mode="canvas_items"
-window/stretch/aspect="expand"
 
 [physics]
 
@@ -28,7 +29,8 @@ window/stretch/aspect="expand"
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
-environment/defaults/default_clear_color=Color(0.05882353, 0, 0.19607843, 1)
+environment/defaults/default_clear_color=Color(0, 0, 0.16078432, 1)

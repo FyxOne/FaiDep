@@ -1,37 +1,15 @@
 [gd_scene format=3 uid="uid://dl6m1181crome"]
 
 [ext_resource type="Texture2D" uid="uid://bpfy2gpqylqx6" path="res://resources/textures/button_frame.png" id="1_lti8b"]
+[ext_resource type="Script" uid="uid://cawi71nl5msoy" path="res://scripts/menu.gd" id="1_mhnvy"]
 [ext_resource type="Texture2D" uid="uid://cg3wm5ue8ds5x" path="res://resources/textures/button_pressed_frame.png" id="2_mae5d"]
 [ext_resource type="FontFile" uid="uid://c8jeuopyf12c7" path="res://resources/fonts/Monocraft.otf" id="2_ouk20"]
-
-[sub_resource type="GDScript" id="GDScript_mhnvy"]
-script/source = "extends Node2D
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
-func _on_play_button_button_down() -> void:
-	$playButton/playButtonLabel.modulate = Color(\"#ffaf5f\")
-
-func _on_play_button_button_up() -> void:
-	$playButton/playButtonLabel.modulate = Color(\"#ffff64\")
-	get_tree().change_scene_to_file(\"res://scenes/game.tscn\")
-
-func _on_lore_button_button_down() -> void:
-	$loreButton/loreButtonLabel.modulate = Color(\"#ffaf5f\")
-	
-func _on_lore_button_button_up() -> void:
-	$loreButton/loreButtonLabel.modulate = Color(\"#ffff64\")
-	get_tree().change_scene_to_file(\"res://scenes/lore.tscn\")
-"
+[ext_resource type="Texture2D" uid="uid://pkd4fv2mi1mf" path="res://resources/textures/fullscreen_button.png" id="5_g3eks"]
+[ext_resource type="Texture2D" uid="uid://dud6mh7lm60e7" path="res://resources/textures/fullscreen_button_pressed.png" id="6_v86rl"]
+[ext_resource type="Texture2D" uid="uid://dpixpjbomo010" path="res://resources/textures/lumen_menu.png" id="7_v86rl"]
 
 [node name="menu" type="Node2D" unique_id=2145280100]
-script = SubResource("GDScript_mhnvy")
+script = ExtResource("1_mhnvy")
 
 [node name="loreButton" type="TextureButton" parent="." unique_id=974943823]
 texture_filter = 1
@@ -55,7 +33,7 @@ grow_vertical = 2
 theme_override_colors/font_color = Color(1, 1, 0.39215687, 1)
 theme_override_fonts/font = ExtResource("2_ouk20")
 theme_override_font_sizes/font_size = 32
-text = "Lore"
+text = "Лор игры"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -81,9 +59,40 @@ grow_vertical = 2
 theme_override_colors/font_color = Color(1, 1, 0.39215687, 1)
 theme_override_fonts/font = ExtResource("2_ouk20")
 theme_override_font_sizes/font_size = 32
-text = "Play"
+text = "Играть"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="lumen" type="TextureRect" parent="." unique_id=1211058047]
+offset_left = 1010.0
+offset_right = 1550.0
+offset_bottom = 720.0
+texture = ExtResource("7_v86rl")
+
+[node name="lumen2" type="TextureRect" parent="." unique_id=464203227]
+offset_left = -270.0
+offset_right = 270.0
+offset_bottom = 720.0
+texture = ExtResource("7_v86rl")
+
+[node name="gameName" type="Label" parent="." unique_id=1627222313]
+offset_left = 267.0
+offset_top = 110.0
+offset_right = 1014.0
+offset_bottom = 191.0
+theme_override_colors/font_color = Color(1, 1, 0.39215687, 1)
+theme_override_fonts/font = ExtResource("2_ouk20")
+theme_override_font_sizes/font_size = 80
+text = "Faith:Depleted"
+
+[node name="fullscreenButton" type="TextureButton" parent="." unique_id=289896608]
+offset_left = 1225.0
+offset_top = 15.0
+offset_right = 1265.0
+offset_bottom = 55.0
+texture_normal = ExtResource("5_g3eks")
+texture_pressed = ExtResource("6_v86rl")
+stretch_mode = 5
 
 [connection signal="button_down" from="loreButton" to="." method="_on_lore_button_button_down"]
 [connection signal="button_up" from="loreButton" to="." method="_on_lore_button_button_up"]
@@ -91,3 +100,4 @@ vertical_alignment = 1
 [connection signal="button_down" from="playButton" to="." method="_on_play_button_button_down"]
 [connection signal="button_up" from="playButton" to="." method="_on_play_button_button_up"]
 [connection signal="pressed" from="playButton" to="." method="_on_play_button_pressed"]
+[connection signal="button_up" from="fullscreenButton" to="." method="_on_fullscreen_button_button_up"]
