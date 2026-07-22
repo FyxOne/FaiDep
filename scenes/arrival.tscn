@@ -1,0 +1,190 @@
+[gd_scene format=3 uid="uid://b07ovosen6wyu"]
+
+[ext_resource type="Texture2D" uid="uid://dmhtljnsyrp43" path="res://resources/textures/label_box.png" id="1_6n8fd"]
+[ext_resource type="Script" uid="uid://b13622cc43grm" path="res://scripts/arrival.gd" id="1_rlvb7"]
+[ext_resource type="Texture2D" uid="uid://bpfy2gpqylqx6" path="res://resources/textures/button_frame.png" id="2_rlvb7"]
+[ext_resource type="Texture2D" uid="uid://cg3wm5ue8ds5x" path="res://resources/textures/button_pressed_frame.png" id="3_3pdg3"]
+[ext_resource type="FontFile" uid="uid://c8jeuopyf12c7" path="res://resources/fonts/Monocraft.otf" id="4_la8oj"]
+[ext_resource type="Texture2D" uid="uid://cspr3roxi3ubs" path="res://resources/textures/lumen_room.png" id="6_3pdg3"]
+
+[sub_resource type="Animation" id="Animation_rlvb7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("labelBox:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 480)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("room:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(400, -480)]
+}
+
+[sub_resource type="Animation" id="Animation_txq3e"]
+resource_name = "end_animation"
+length = 0.25
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("labelBox:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 480), Vector2(0, 720)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("room:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(400, 0), Vector2(400, -480)]
+}
+
+[sub_resource type="Animation" id="Animation_la8oj"]
+resource_name = "room_animation"
+length = 0.25
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("room:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(400, -480), Vector2(400, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_3pdg3"]
+resource_name = "start_animation"
+length = 0.25
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("labelBox:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 720), Vector2(0, 480)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_la8oj"]
+_data = {
+&"RESET": SubResource("Animation_rlvb7"),
+&"end_animation": SubResource("Animation_txq3e"),
+&"room_animation": SubResource("Animation_la8oj"),
+&"start_animation": SubResource("Animation_3pdg3")
+}
+
+[node name="Arrival" type="Node2D" unique_id=1237657544]
+script = ExtResource("1_rlvb7")
+
+[node name="labelBox" type="TextureRect" parent="." unique_id=724541756]
+offset_top = 480.0
+offset_right = 1280.0
+offset_bottom = 720.00024
+texture = ExtResource("1_6n8fd")
+
+[node name="nextButton" type="TextureButton" parent="labelBox" unique_id=681837637]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 990.0
+offset_top = 150.0
+offset_right = 1240.0
+offset_bottom = 200.0
+texture_normal = ExtResource("2_rlvb7")
+texture_pressed = ExtResource("3_3pdg3")
+stretch_mode = 5
+
+[node name="nextButtonLabel" type="Label" parent="labelBox/nextButton" unique_id=879613844]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 0.39215687, 1)
+theme_override_fonts/font = ExtResource("4_la8oj")
+theme_override_font_sizes/font_size = 32
+text = "Далее"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="text" type="Label" parent="labelBox" unique_id=520119243]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 1270.0
+offset_bottom = 145.0
+theme_override_colors/font_color = Color(1, 1, 0.39215687, 1)
+theme_override_fonts/font = ExtResource("4_la8oj")
+theme_override_font_sizes/font_size = 32
+autowrap_mode = 2
+
+[node name="backButton" type="TextureButton" parent="labelBox" unique_id=1012281632]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 700.0
+offset_top = 150.0
+offset_right = 950.0
+offset_bottom = 200.0
+texture_normal = ExtResource("2_rlvb7")
+texture_pressed = ExtResource("3_3pdg3")
+stretch_mode = 5
+
+[node name="backButtonLabel" type="Label" parent="labelBox/backButton" unique_id=203817405]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 0.39215687, 1)
+theme_override_fonts/font = ExtResource("4_la8oj")
+theme_override_font_sizes/font_size = 32
+text = "Назад"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=513263557]
+libraries/ = SubResource("AnimationLibrary_la8oj")
+
+[node name="room" type="TextureRect" parent="." unique_id=595961277]
+offset_left = 400.0
+offset_top = -480.0
+offset_right = 880.0
+texture = ExtResource("6_3pdg3")
+
+[connection signal="button_down" from="labelBox/nextButton" to="." method="_on_next_button_button_down"]
+[connection signal="button_up" from="labelBox/nextButton" to="." method="_on_next_button_button_up"]
+[connection signal="button_down" from="labelBox/backButton" to="." method="_on_back_button_button_down"]
+[connection signal="button_up" from="labelBox/backButton" to="." method="_on_back_button_button_up"]

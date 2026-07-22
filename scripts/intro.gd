@@ -2,7 +2,7 @@ extends Node2D
 var texts = [
 	"В кабинете тихо. Только лампа гудит и страницы шуршат.",
 	"Люмен читает уже второй час. Или третий. Работа экзорциста — это не только выезды. Это ещё и ожидание.",
-	"Он уже хотел закрыть книгу, как телефон на тумбочке зазвонил. Старый чёрный аппарат. Звон разорвал тишину. Люмен снял трубку.",
+	"Он уже хотел закрыть книгу, как телефон на тумбочке зазвонил. Звон разорвал тишину. Войд снял трубку.",
 	"- Люмен слушает.",
 	"Голос на том конце произнёс адрес. Коротко. Без объяснений. Без имени пациента. Без подробностей.",
 	"- Принято.",
@@ -53,6 +53,9 @@ func _on_yes_button_button_down() -> void:
 
 func _on_yes_button_button_up() -> void:
 	$book/yesButton/yesButtonLabel.add_theme_color_override("font_color", Color("#ffff64"))
+	$AnimationPlayer.play("end_animation")
+	await $AnimationPlayer.animation_finished
+	get_tree().change_scene_to_file("res://scenes/arrival.tscn")
 
 
 func _on_no_button_button_down() -> void:
