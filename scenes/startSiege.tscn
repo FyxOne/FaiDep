@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://cemyk8v4nrvd1"]
+
+[ext_resource type="Script" uid="uid://drw7akvdv0hte" path="res://scripts/start_siege.gd" id="1_proag"]
+
+[node name="startSiege" type="Node2D" unique_id=73855688]
+script = ExtResource("1_proag")

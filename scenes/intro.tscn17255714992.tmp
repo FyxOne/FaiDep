@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://bobk52foret30"]
+
+[ext_resource type="Script" uid="uid://df705c57gl6gi" path="res://scripts/intro.gd" id="1_es01l"]
+[ext_resource type="Texture2D" uid="uid://bnypd6nkk5pso" path="res://resources/textures/lumen_office.png" id="1_ioskq"]
+[ext_resource type="Texture2D" uid="uid://dmhtljnsyrp43" path="res://resources/textures/label_box.png" id="2_yjqpq"]
+[ext_resource type="Texture2D" uid="uid://bpfy2gpqylqx6" path="res://resources/textures/button_frame.png" id="3_wfs7u"]
+[ext_resource type="Texture2D" uid="uid://cg3wm5ue8ds5x" path="res://resources/textures/button_pressed_frame.png" id="4_es01l"]
+[ext_resource type="FontFile" uid="uid://c8jeuopyf12c7" path="res://resources/fonts/Monocraft.otf" id="5_0naf5"]
+
+[node name="Intro" type="Node2D" unique_id=209327580]
+script = ExtResource("1_es01l")
+
+[node name="lumenOffice" type="TextureRect" parent="." unique_id=2084806730]
+offset_left = 400.0
+offset_right = 880.0
+offset_bottom = 480.0
+texture = ExtResource("1_ioskq")
+
+[node name="labelBox" type="TextureRect" parent="." unique_id=1527832315]
+offset_top = 480.0
+offset_right = 1280.0
+offset_bottom = 720.0
+texture = ExtResource("2_yjqpq")
+
+[node name="nextButton" type="TextureButton" parent="labelBox" unique_id=1411915280]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 990.0
+offset_top = 150.0
+offset_right = 1240.0
+offset_bottom = 200.0
+texture_normal = ExtResource("3_wfs7u")
+texture_pressed = ExtResource("4_es01l")
+stretch_mode = 5
+
+[node name="nextButtonLabel" type="Label" parent="labelBox/nextButton" unique_id=340202242]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 0.39215687, 1)
+theme_override_fonts/font = ExtResource("5_0naf5")
+theme_override_font_sizes/font_size = 32
+text = "Далее"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="text" type="Label" parent="labelBox" unique_id=144182120]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 985.0
+offset_bottom = 230.0
+theme_override_colors/font_color = Color(1, 1, 0.39215687, 1)
+theme_override_fonts/font = ExtResource("5_0naf5")
+theme_override_font_sizes/font_size = 32
+autowrap_mode = 2
+
+[connection signal="button_down" from="labelBox/nextButton" to="." method="_on_next_button_button_down"]
+[connection signal="button_up" from="labelBox/nextButton" to="." method="_on_next_button_button_up"]
