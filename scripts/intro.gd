@@ -12,6 +12,7 @@ var index = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	$bookSound.play()
 	$labelBox/text.text = texts[index]
 	$AnimationPlayer.play("start_animation")
 
@@ -30,9 +31,14 @@ func _on_next_button_button_up() -> void:
 	if index < texts.size():
 		$labelBox/text.text = texts[index]
 	else:
+		$bookSound.play()
 		$AnimationPlayer.play("book_animation")
-
-
+	
+	if index == 2:
+		$phoneSound.play()
+	if index == 3 or index == 6:
+		$phoneSound.stop()
+		$getPhoneSound.play()
 func _on_back_button_button_down() -> void:
 	$labelBox/backButton/backButtonLabel.add_theme_color_override("font_color", Color("#ffaf5f"))
 

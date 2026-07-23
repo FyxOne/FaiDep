@@ -2,10 +2,10 @@ extends Node2D
 
 var texts1 = [
 	"Ночь. Дорога пустая, машин нет. Только фары светят вперёд. За окнами - темнота.",
-	"Люмен за рулём, смотрит на дорогу. Он уже ездил по этому адресу. Не в этот дом, но в похожие. Каждый раз одно и то же.",
+	"Войд за рулём, смотрит на дорогу. Он уже ездил по этому адресу. Не в этот дом, но в похожие. Каждый раз одно и то же.",
 	"Дом появляется внезапно. Одноэтажный, старый, окна тёмные.",
-	"Люмен выключает двигатель и выходит из машины.",
-	"Он берёт книгу с пассажирского сиденья, закрывает дверь машины и идёт к дому. Дверь не заперта. Он заходит.",
+	"Войд останавливается и выключает двигатель.",
+	"Он берёт сумку с книгой с пассажирского сиденья, закрывает дверь машины и идёт к дому. Дверь не заперта. Он заходит.",
 	"Внутри темно и тихо. Только лампа на тумбочке у кровати горит, но свет от неё слабый, почти не разгоняет темноту. Люмен останавливается у входа, осматривается."
 ]
 var texts2 = [
@@ -21,6 +21,7 @@ var isRoom = false
 func _ready() -> void:
 	$labelBox/text.text = texts1[index]
 	$AnimationPlayer.play("start_animation")
+	$carSound.play()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -44,6 +45,14 @@ func _on_next_button_button_up() -> void:
 			isRoom = true
 			index = 0
 			$labelBox/text.text = texts2[index]
+			
+		if index == 3:
+			var tween = create_tween()
+			tween.tween_property($carSound, "volume_db", -80, 1.0)
+			await tween.finished
+			$carSound.stop()
+		if index == 4:
+			$carDoorSound.play()
 	else:
 		index += 1
 		if index < texts2.size():
