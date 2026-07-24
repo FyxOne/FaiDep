@@ -8,7 +8,7 @@ var texts = [
 	"Люмен делает глубокий вдох и начинает."
 ]
 var index = 0
-var word_count = 5
+var word_count = 100
 var current_index = 0
 var bpm = 75
 var last_click_time = 0.0
