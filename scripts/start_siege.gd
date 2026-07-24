@@ -8,7 +8,7 @@ var texts = [
 	"Люмен делает глубокий вдох и начинает."
 ]
 var index = 0
-var word_count = 100
+var word_count = 5
 var current_index = 0
 var bpm = 75
 var last_click_time = 0.0
@@ -70,11 +70,11 @@ func _on_back_button_button_up() -> void:
 	$labelBox/text.text = texts[index]
 	
 func heartbeat():
-	while bpm > 40 and bpm < 150:
+	while (bpm > 40 and bpm < 150) and (current_index < word_count):
 		$pulseAudio.play()
 		$heart.texture = preload("res://resources/textures/heart1.png")
 		await get_tree().create_timer(60.0 / bpm).timeout
-		
+			
 		$pulseAudio.play()
 		$heart.texture = preload("res://resources/textures/heart2.png")
 		await get_tree().create_timer(60.0 / bpm).timeout
@@ -103,6 +103,7 @@ func _on_word_clicked(index):
 	var btn = $book/FlowContainer.get_child(index)
 	
 	if last_click_time == 0:
+		$penSound.play()
 		last_click_time = now
 		btn.disabled = true
 		btn.modulate.a = 0
@@ -129,18 +130,22 @@ func _on_word_clicked(index):
 	
 	$heart/bpm.text = str(int(round(bpm)))
 
+# смерть (💀черепок☠️)
 	if bpm <= 40 or bpm >= 150:
 		$heart/bpm.visible = false
 		$deathAudio.play()
 		$AnimationPlayer.play("death1_animation")
 		await get_tree().create_timer(2).timeout
 		$heart.texture = preload("res://resources/textures/heart3.png")
+		$deathAudio.stream = preload("res://resources/sounds/death2.mp3")
+		$deathAudio.play()
 		await get_tree().create_timer(1).timeout
 		$heart.visible = false
 		await get_tree().create_timer(1).timeout
 		$labelBox/text.text = "Пациент скончался."
 		$labelBox/nextButton/nextButtonLabel.text = "Заново"
 		$labelBox/backButton.visible = false
+		$bookSound.play()
 		$AnimationPlayer.play("death2_animation")
 		return
 	
@@ -150,4 +155,7 @@ func _on_word_clicked(index):
 	current_index += 1
 	
 	if current_index >= word_count:
-		print("Все слова прочитаны!")
+		$teleportSound.play()
+		$AnimationPlayer.play("end_animation")
+		await $teleportSound.finished
+		get_tree().change_scene_to_file("res://scenes/mindFall.tscn")
