@@ -1,11 +1,11 @@
 [gd_scene format=4 uid="uid://djo2l5gndcun8"]
 
-[ext_resource type="Script" uid="uid://cjcp4rcgidiah" path="res://scripts/mind_fall.gd" id="1_t2cqc"]
-[ext_resource type="Texture2D" uid="uid://ckmq1yt4ukle7" path="res://resources/textures/comix.png" id="2_q3cas"]
-[ext_resource type="Texture2D" uid="uid://dmhtljnsyrp43" path="res://resources/textures/label_box.png" id="3_ujyi6"]
-[ext_resource type="Texture2D" uid="uid://bpfy2gpqylqx6" path="res://resources/textures/button_frame.png" id="4_cw1td"]
-[ext_resource type="Texture2D" uid="uid://cg3wm5ue8ds5x" path="res://resources/textures/button_pressed_frame.png" id="5_rxdmf"]
-[ext_resource type="FontFile" uid="uid://c8jeuopyf12c7" path="res://resources/fonts/Monocraft.otf" id="6_p0ryl"]
+[ext_resource type="Script" uid="uid://bqj7j6haiohvt" path="res://scripts/mind_fall.gd" id="1_t2cqc"]
+[ext_resource type="Texture2D" uid="uid://cb036rrlokmnm" path="res://resources/textures/comix.png" id="2_q3cas"]
+[ext_resource type="Texture2D" uid="uid://2pdhsaqv50sj" path="res://resources/textures/label_box.png" id="3_ujyi6"]
+[ext_resource type="Texture2D" uid="uid://cjlq0wvqlmybx" path="res://resources/textures/button_frame.png" id="4_cw1td"]
+[ext_resource type="Texture2D" uid="uid://c2chovt6836os" path="res://resources/textures/button_pressed_frame.png" id="5_rxdmf"]
+[ext_resource type="FontFile" uid="uid://cudhoqhv0wncu" path="res://resources/fonts/Monocraft.otf" id="6_p0ryl"]
 [ext_resource type="AudioStream" uid="uid://bphfrg4gqwnn8" path="res://resources/sounds/book.mp3" id="7_ujyi6"]
 [ext_resource type="AudioStream" uid="uid://g5he26oxs57c" path="res://resources/sounds/falled_down.mp3" id="8_cw1td"]
 
