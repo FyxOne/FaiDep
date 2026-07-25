@@ -13,6 +13,8 @@ func _on_play_button_button_down() -> void:
 
 func _on_play_button_button_up() -> void:
 	$playButton/playButtonLabel.add_theme_color_override("font_color", Color("#ffff64"))
+	Global.timer_running = true
+	Global.elapsed_time = 0.0
 	get_tree().change_scene_to_file("res://scenes/intro.tscn")
 
 func _on_lore_button_button_down() -> void:

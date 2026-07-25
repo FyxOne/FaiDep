@@ -17,6 +17,10 @@ boot_splash/bg_color=Color(0.05882353, 0, 0.19607843, 1)
 boot_splash/image="uid://dnfdvon1iopyd"
 config/icon="uid://dnfdvon1iopyd"
 
+[autoload]
+
+Global="*uid://bijduggk5lwf8"
+
 [display]
 
 window/size/viewport_width=1280

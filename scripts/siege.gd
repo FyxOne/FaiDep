@@ -18,6 +18,8 @@ var obsession = 1.0
 var mask_hp = 1.0
 var sanity = 1.0
 
+var isDemonAlive = true
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$labelBox/text.text = texts[index]
@@ -37,6 +39,24 @@ func _process(delta: float) -> void:
 	else:
 		sanity -= 0.001
 		set_sanity(sanity)
+		
+	if demon_hp <= 0.001 and isDemonAlive == true:
+		isDemonAlive = false
+		
+	if isDemonAlive == false:
+		demon_hp += 0.001
+		set_demon_hp(demon_hp)
+		if demon_hp >= 1.0:
+			demon_hp = 1.0
+			set_demon_hp(demon_hp)
+			isDemonAlive = true
+			
+	if obsession <= 0:
+		Global.timer_running = false
+		get_tree().change_scene_to_file("res://scenes/victory.tscn")
+		
+	if sanity <= 0:
+		get_tree().change_scene_to_file("res://scenes/defeat.tscn")
 
 func _on_next_button_button_down() -> void:
 	$labelBox/nextButton/nextButtonLabel.add_theme_color_override("font_color", Color("#ffaf5f"))
@@ -110,9 +130,12 @@ func set_sanity(value):
 
 func _on_start_button_button_up() -> void:
 	if active_tab == "attack":
-		if demon_hp > 0:
+		if isDemonAlive == true:
 			demon_hp -= 0.1
+			if demon_hp < 0:
+				demon_hp = 0
 			set_demon_hp(demon_hp)
+		
 	if active_tab == "clean":
 		if obsession > 0:
 			obsession -= 0.01
@@ -123,11 +146,11 @@ func _on_start_button_button_up() -> void:
 			set_mask_hp(mask_hp)
 
 func demon_atack():
-	while demon_hp > 0:
-		await get_tree().create_timer(5.0).timeout
+	while isDemonAlive == true:
 		if mask_hp > 0:
 			mask_hp -= 0.1
 			set_mask_hp(mask_hp)
 		else:
 			sanity -= 0.1
 			set_sanity(sanity)
+		await get_tree().create_timer(5.0).timeout
