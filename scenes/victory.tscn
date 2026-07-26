@@ -1,6 +1,127 @@
 [gd_scene format=3 uid="uid://drtpr8rqqac88"]
 
-[ext_resource type="Script" uid="uid://l4b6q06283nw" path="res://scripts/victory.gd" id="1_le47n"]
+[ext_resource type="Script" uid="uid://biae3ayfx1i1a" path="res://scripts/victory.gd" id="1_le47n"]
+[ext_resource type="Texture2D" uid="uid://bpip1vddwiqpn" path="res://resources/textures/victory.png" id="2_hl81x"]
+[ext_resource type="FontFile" uid="uid://c8jeuopyf12c7" path="res://resources/fonts/Monocraft.otf" id="3_73dpb"]
+[ext_resource type="Texture2D" uid="uid://bpfy2gpqylqx6" path="res://resources/textures/button_frame.png" id="4_g6lwx"]
+[ext_resource type="Texture2D" uid="uid://cg3wm5ue8ds5x" path="res://resources/textures/button_pressed_frame.png" id="5_5hn41"]
+
+[sub_resource type="Animation" id="Animation_hl81x"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("end:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_73dpb"]
+resource_name = "start_animation"
+length = 0.25
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("end:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_g6lwx"]
+_data = {
+&"RESET": SubResource("Animation_hl81x"),
+&"start_animation": SubResource("Animation_73dpb")
+}
 
 [node name="Victory" type="Node2D" unique_id=510254823]
 script = ExtResource("1_le47n")
+
+[node name="viсtory" type="TextureRect" parent="." unique_id=415078315]
+offset_left = 560.0
+offset_right = 1280.0
+offset_bottom = 720.0
+texture = ExtResource("2_hl81x")
+
+[node name="victoryText" type="Label" parent="." unique_id=1310486949]
+offset_left = 88.0
+offset_top = 263.0
+offset_right = 472.0
+offset_bottom = 360.0
+theme_override_colors/font_color = Color(1, 1, 0.33333334, 1)
+theme_override_fonts/font = ExtResource("3_73dpb")
+theme_override_font_sizes/font_size = 96
+text = "ПОБЕДА"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="text" type="Label" parent="victoryText" unique_id=1832496629]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 97.0
+offset_right = 352.0
+offset_bottom = 130.0
+theme_override_colors/font_color = Color(1, 1, 0.33333334, 1)
+theme_override_fonts/font = ExtResource("3_73dpb")
+theme_override_font_sizes/font_size = 32
+text = "Осада проведена"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="time" type="Label" parent="victoryText" unique_id=1215094664]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 130.0
+offset_right = 352.0
+offset_bottom = 163.0
+theme_override_colors/font_color = Color(1, 1, 0.33333334, 1)
+theme_override_fonts/font = ExtResource("3_73dpb")
+theme_override_font_sizes/font_size = 32
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2002859709]
+libraries/ = SubResource("AnimationLibrary_g6lwx")
+
+[node name="end" type="ColorRect" parent="." unique_id=921099086]
+modulate = Color(1, 1, 1, 0)
+offset_right = 1280.0
+offset_bottom = 720.0
+color = Color(1, 1, 0.33333334, 1)
+
+[node name="Button" type="TextureButton" parent="." unique_id=1022185868]
+anchors_preset = -1
+offset_left = 155.0
+offset_top = 428.0
+offset_right = 405.0
+offset_bottom = 478.0
+texture_normal = ExtResource("4_g6lwx")
+texture_pressed = ExtResource("5_5hn41")
+stretch_mode = 5
+
+[node name="ButtonLabel" type="Label" parent="Button" unique_id=219916926]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 0.39215687, 1)
+theme_override_fonts/font = ExtResource("3_73dpb")
+theme_override_font_sizes/font_size = 32
+text = "Меню"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="button_down" from="Button" to="." method="_on_button_button_down"]
+[connection signal="button_up" from="Button" to="." method="_on_button_button_up"]

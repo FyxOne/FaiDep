@@ -1,18 +1,31 @@
 [gd_scene format=3 uid="uid://bwonkf1nuc7qq"]
 
-[ext_resource type="Script" uid="uid://b72hi46d73qaq" path="res://scripts/siege.gd" id="1_qmd55"]
-[ext_resource type="Texture2D" uid="uid://2pdhsaqv50sj" path="res://resources/textures/label_box.png" id="1_ymc6o"]
-[ext_resource type="Texture2D" uid="uid://cjlq0wvqlmybx" path="res://resources/textures/button_frame.png" id="2_qmd55"]
-[ext_resource type="Texture2D" uid="uid://c2chovt6836os" path="res://resources/textures/button_pressed_frame.png" id="3_mi5ac"]
-[ext_resource type="FontFile" uid="uid://cudhoqhv0wncu" path="res://resources/fonts/Monocraft.otf" id="4_v5mol"]
+[ext_resource type="Script" uid="uid://cqd0x83vd4nep" path="res://scripts/siege.gd" id="1_qmd55"]
+[ext_resource type="Texture2D" uid="uid://dmhtljnsyrp43" path="res://resources/textures/label_box.png" id="1_ymc6o"]
+[ext_resource type="Texture2D" uid="uid://b2pygk1vsp1ta" path="res://resources/animations/damage0.png" id="2_byl74"]
+[ext_resource type="Texture2D" uid="uid://bpfy2gpqylqx6" path="res://resources/textures/button_frame.png" id="2_qmd55"]
+[ext_resource type="Texture2D" uid="uid://futl1eoc1c3n" path="res://resources/animations/damage1.png" id="3_gr8e5"]
+[ext_resource type="Texture2D" uid="uid://cg3wm5ue8ds5x" path="res://resources/textures/button_pressed_frame.png" id="3_mi5ac"]
+[ext_resource type="Texture2D" uid="uid://bp08nmmmbh4ko" path="res://resources/animations/damage2.png" id="4_an0o0"]
+[ext_resource type="FontFile" uid="uid://c8jeuopyf12c7" path="res://resources/fonts/Monocraft.otf" id="4_v5mol"]
+[ext_resource type="Texture2D" uid="uid://bavhtiufg26wr" path="res://resources/animations/damage3.png" id="5_314to"]
 [ext_resource type="Texture2D" uid="uid://blw550pmbsonx" path="res://resources/textures/book.png" id="6_ram0j"]
-[ext_resource type="Texture2D" uid="uid://c4qovx6sh3keh" path="res://resources/textures/non_active_tab.png" id="7_3b6yr"]
-[ext_resource type="Texture2D" uid="uid://mpnu8ir23n32" path="res://resources/textures/active_tab.png" id="8_vfyv6"]
-[ext_resource type="Texture2D" uid="uid://bnvyujj6t51gd" path="res://resources/icons/icon32x.png" id="9_3b6yr"]
+[ext_resource type="Texture2D" uid="uid://cm6thp5p7hoxx" path="res://resources/animations/damage4.png" id="6_t0e4n"]
+[ext_resource type="Texture2D" uid="uid://bgedrw0pvpufy" path="res://resources/textures/non_active_tab.png" id="7_3b6yr"]
+[ext_resource type="Texture2D" uid="uid://s2ns2xj03gyl" path="res://resources/animations/damage5.png" id="7_3ovhw"]
+[ext_resource type="Texture2D" uid="uid://sq6tu4na42yn" path="res://resources/animations/damage6.png" id="8_0r8xi"]
+[ext_resource type="Texture2D" uid="uid://yyrurmfdbvl1" path="res://resources/textures/active_tab.png" id="8_vfyv6"]
 [ext_resource type="Texture2D" uid="uid://bgw6yc4mq2yqk" path="res://resources/textures/scales_icon.png" id="10_p3rc3"]
 [ext_resource type="Texture2D" uid="uid://cwpfbihrn7a2s" path="res://resources/textures/doctor_portrait.png" id="10_vfyv6"]
 [ext_resource type="Texture2D" uid="uid://cwc1p4kssg6ww" path="res://resources/textures/eyes.png" id="11_ssxl4"]
 [ext_resource type="Texture2D" uid="uid://dyupmlm3xgqb3" path="res://resources/textures/corridor.png" id="12_4h8ge"]
+[ext_resource type="AudioStream" uid="uid://cx25fas4e0dve" path="res://resources/sounds/demon.mp3" id="14_kqh8t"]
+[ext_resource type="AudioStream" uid="uid://dywy5m0dsbjog" path="res://resources/sounds/teleport.mp3" id="15_43tdf"]
+[ext_resource type="AudioStream" uid="uid://ciy8lnctt3w2k" path="res://resources/sounds/damage.mp3" id="23_gr8e5"]
+[ext_resource type="AudioStream" uid="uid://dvjuy5u5amgkt" path="res://resources/sounds/demon_dying.mp3" id="24_314to"]
+[ext_resource type="AudioStream" uid="uid://djujyrjpjgp0w" path="res://resources/sounds/pen.mp3" id="24_an0o0"]
+[ext_resource type="AudioStream" uid="uid://bphfrg4gqwnn8" path="res://resources/sounds/book.mp3" id="25_314to"]
+[ext_resource type="AudioStream" uid="uid://0qg5wkexhprh" path="res://resources/sounds/death.mp3" id="26_t0e4n"]
 
 [sub_resource type="Animation" id="Animation_qmd55"]
 length = 0.001
@@ -63,6 +76,141 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../../end:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../../corridor/damage:texture")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_byl74")]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../../corridor/eyes:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("../../corridor/eyes:size")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(180, 40)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("../../corridor/eyes:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(260, 224)]
+}
+
+[sub_resource type="Animation" id="Animation_ttmgl"]
+resource_name = "damage_animation"
+length = 0.6
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../../corridor/damage:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("2_byl74"), ExtResource("3_gr8e5"), ExtResource("4_an0o0"), ExtResource("5_314to"), ExtResource("6_t0e4n"), ExtResource("7_3ovhw"), ExtResource("8_0r8xi")]
+}
+
+[sub_resource type="Animation" id="Animation_gr8e5"]
+resource_name = "demon_animation"
+length = 0.5
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../../corridor/eyes:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../../corridor/eyes:size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(90, 20), Vector2(180, 40)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../../corridor/eyes:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(305, 224), Vector2(260, 224)]
+}
+
+[sub_resource type="Animation" id="Animation_ssxl4"]
+resource_name = "end_animation"
+length = 0.25
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../../end:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_p3rc3"]
@@ -138,6 +286,9 @@ tracks/0/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_v5mol"]
 _data = {
 &"RESET": SubResource("Animation_qmd55"),
+&"damage_animation": SubResource("Animation_ttmgl"),
+&"demon_animation": SubResource("Animation_gr8e5"),
+&"end_animation": SubResource("Animation_ssxl4"),
 &"siege_animation": SubResource("Animation_p3rc3"),
 &"start_animation": SubResource("Animation_mi5ac")
 }
@@ -239,18 +390,16 @@ offset_right = 530.0
 offset_bottom = 118.0
 color = Color(1, 1, 0.33333334, 1)
 
-[node name="startButton" type="TextureButton" parent="book" unique_id=1816113687]
+[node name="FlowContainer" type="FlowContainer" parent="book" unique_id=1826831271]
 layout_mode = 0
-offset_left = 259.0
-offset_top = 302.0
-offset_right = 394.0
-offset_bottom = 437.0
-texture_normal = ExtResource("9_3b6yr")
-stretch_mode = 5
+offset_left = 130.0
+offset_top = 125.0
+offset_right = 520.0
+offset_bottom = 620.0
 
 [node name="scalesIcons" type="TextureRect" parent="." unique_id=167726380]
 offset_left = 1280.0
-offset_right = 1330.0002
+offset_right = 1330.0
 offset_bottom = 200.0
 texture = ExtResource("10_p3rc3")
 
@@ -344,10 +493,18 @@ offset_right = 440.0
 offset_bottom = 264.0
 texture = ExtResource("11_ssxl4")
 
+[node name="damage" type="TextureRect" parent="corridor" unique_id=1794710989]
+layout_mode = 0
+offset_left = 170.0
+offset_top = 58.0
+offset_right = 530.0
+offset_bottom = 418.0
+texture = ExtResource("2_byl74")
+
 [node name="labelBox" type="TextureRect" parent="." unique_id=1143723201]
 offset_top = 720.0
 offset_right = 1280.0
-offset_bottom = 960.0
+offset_bottom = 959.9997
 texture = ExtResource("1_ymc6o")
 
 [node name="nextButton" type="TextureButton" parent="labelBox" unique_id=73977231]
@@ -411,10 +568,39 @@ text = "Назад"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="end" type="ColorRect" parent="." unique_id=892723781]
+modulate = Color(1, 1, 1, 0)
+offset_right = 1280.0
+offset_bottom = 720.0
+color = Color(1, 1, 0.0627451, 1)
+
+[node name="demonSound" type="AudioStreamPlayer" parent="." unique_id=1419945115]
+stream = ExtResource("14_kqh8t")
+volume_db = -5.0
+
+[node name="teleportSound" type="AudioStreamPlayer" parent="." unique_id=473165350]
+stream = ExtResource("15_43tdf")
+volume_db = -5.0
+
+[node name="damageSound" type="AudioStreamPlayer" parent="." unique_id=533786329]
+stream = ExtResource("23_gr8e5")
+
+[node name="penSound" type="AudioStreamPlayer" parent="." unique_id=2065113831]
+stream = ExtResource("24_an0o0")
+volume_db = -10.0
+
+[node name="demonDying" type="AudioStreamPlayer" parent="." unique_id=1800393839]
+stream = ExtResource("24_314to")
+
+[node name="bookSound" type="AudioStreamPlayer" parent="." unique_id=1323604245]
+stream = ExtResource("25_314to")
+
+[node name="deathSound" type="AudioStreamPlayer" parent="." unique_id=1723045827]
+stream = ExtResource("26_t0e4n")
+
 [connection signal="button_down" from="book/attackTab" to="." method="_on_attack_tab_button_down"]
 [connection signal="button_down" from="book/cleanTab" to="." method="_on_clean_tab_button_down"]
 [connection signal="button_down" from="book/repairTab" to="." method="_on_repair_tab_button_down"]
-[connection signal="button_up" from="book/startButton" to="." method="_on_start_button_button_up"]
 [connection signal="button_down" from="labelBox/nextButton" to="." method="_on_next_button_button_down"]
 [connection signal="button_up" from="labelBox/nextButton" to="." method="_on_next_button_button_up"]
 [connection signal="button_down" from="labelBox/backButton" to="." method="_on_back_button_button_down"]

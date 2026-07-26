@@ -1,3 +1,124 @@
 [gd_scene format=3 uid="uid://cahya1qrifttv"]
 
+[ext_resource type="Script" uid="uid://cxh1acdxash4d" path="res://scripts/defeat.gd" id="1_rrsnv"]
+[ext_resource type="Texture2D" uid="uid://lnrv1saki7kv" path="res://resources/textures/defeat.png" id="1_ycbao"]
+[ext_resource type="FontFile" uid="uid://c8jeuopyf12c7" path="res://resources/fonts/Monocraft.otf" id="2_rrsnv"]
+[ext_resource type="Texture2D" uid="uid://bpfy2gpqylqx6" path="res://resources/textures/button_frame.png" id="4_31oti"]
+[ext_resource type="Texture2D" uid="uid://cg3wm5ue8ds5x" path="res://resources/textures/button_pressed_frame.png" id="5_gofgq"]
+
+[sub_resource type="Animation" id="Animation_hl81x"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("end:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_73dpb"]
+resource_name = "start_animation"
+length = 0.25
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("end:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kgct7"]
+_data = {
+&"RESET": SubResource("Animation_hl81x"),
+&"start_animation": SubResource("Animation_73dpb")
+}
+
 [node name="Defeat" type="Node2D" unique_id=1310428905]
+script = ExtResource("1_rrsnv")
+
+[node name="defeat" type="TextureRect" parent="." unique_id=801551051]
+offset_left = 560.0
+offset_right = 1280.0
+offset_bottom = 720.0
+texture = ExtResource("1_ycbao")
+
+[node name="defeatText" type="Label" parent="." unique_id=188228745]
+offset_left = 88.0
+offset_top = 263.0
+offset_right = 472.0
+offset_bottom = 360.0
+theme_override_colors/font_color = Color(1, 1, 0.33333334, 1)
+theme_override_fonts/font = ExtResource("2_rrsnv")
+theme_override_font_sizes/font_size = 96
+text = "СМЕРТЬ"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="text" type="Label" parent="defeatText" unique_id=1961008090]
+layout_mode = 0
+offset_top = 97.0
+offset_right = 598.0
+offset_bottom = 134.0
+theme_override_colors/font_color = Color(1, 1, 0.33333334, 1)
+theme_override_fonts/font = ExtResource("2_rrsnv")
+theme_override_font_sizes/font_size = 16
+text = "Рассудок Люмена упал и демон завладел его разумом.
+Инквизиция сожгла Войда на костре вместе с его пациентом."
+vertical_alignment = 1
+
+[node name="time" type="Label" parent="defeatText" unique_id=1806293172]
+layout_mode = 0
+offset_top = 134.0
+offset_right = 320.0
+offset_bottom = 167.0
+theme_override_colors/font_color = Color(1, 1, 0.33333334, 1)
+theme_override_fonts/font = ExtResource("2_rrsnv")
+theme_override_font_sizes/font_size = 16
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=210323560]
+libraries/ = SubResource("AnimationLibrary_kgct7")
+
+[node name="end" type="ColorRect" parent="." unique_id=512420084]
+modulate = Color(1, 1, 1, 0)
+offset_right = 1280.0
+offset_bottom = 720.0
+color = Color(1, 1, 0.0627451, 1)
+
+[node name="Button" type="TextureButton" parent="." unique_id=938700795]
+anchors_preset = -1
+offset_left = 88.0
+offset_top = 430.0
+offset_right = 338.0
+offset_bottom = 480.0
+texture_normal = ExtResource("4_31oti")
+texture_pressed = ExtResource("5_gofgq")
+stretch_mode = 5
+
+[node name="ButtonLabel" type="Label" parent="Button" unique_id=2069786830]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 0.39215687, 1)
+theme_override_fonts/font = ExtResource("2_rrsnv")
+theme_override_font_sizes/font_size = 32
+text = "Заново"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="button_down" from="Button" to="." method="_on_button_button_down"]
+[connection signal="button_up" from="Button" to="." method="_on_button_button_up"]
