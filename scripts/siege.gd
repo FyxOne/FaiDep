@@ -27,6 +27,8 @@ var is_game_over = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	Global.set_scene("siege")
+	Global.set_obsession(obsession)
 	$end.visible = false
 	$labelBox/text.text = texts[index]
 	$AnimationPlayer.play("start_animation")
@@ -84,6 +86,7 @@ func _process(delta: float) -> void:
 		$end.visible = true
 		$deathSound.play()
 		$AnimationPlayer.play("end_animation")
+		Global.set_scene("defeat")
 		await $deathSound.finished
 		get_tree().change_scene_to_file("res://scenes/defeat.tscn")
 
@@ -165,7 +168,7 @@ func set_sanity(value):
 	$scalesIcons/sanityScaleFrame/sanity.size.x = 240 * value
 
 func demon_atack():
-	while isDemonAlive == true:
+	while isDemonAlive == true and not is_game_over:
 		if mask_hp > 0:
 			mask_hp -= 0.25
 			set_mask_hp(mask_hp)
@@ -219,6 +222,7 @@ func _on_word_clicked(index):
 			if obsession < 0:
 				obsession = 0
 			set_obsession(obsession)
+			Global.set_obsession(obsession)
 			
 	if active_tab == "repair":
 		if mask_hp < 1.0:
