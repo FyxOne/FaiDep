@@ -419,7 +419,7 @@ layout_mode = 0
 offset_left = 130.0
 offset_top = 125.0
 offset_right = 520.0
-offset_bottom = 620.0
+offset_bottom = 610.0
 
 [node name="scalesIcons" type="TextureRect" parent="." unique_id=167726380]
 offset_left = 1280.0

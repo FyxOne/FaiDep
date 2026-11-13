@@ -1,5 +1,6 @@
 .godot/
 build/
+resources/drafts/
 *.import
 *.uid
 export_presets.cfg

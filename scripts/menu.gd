@@ -23,6 +23,13 @@ func _on_lore_button_button_down() -> void:
 func _on_lore_button_button_up() -> void:
 	$loreButton/loreButtonLabel.add_theme_color_override("font_color", Color("#ffff64"))
 	get_tree().change_scene_to_file("res://scenes/lore.tscn")
+	
+func _on_settings_button_button_down() -> void:
+	$settingsButton/settingsButtonLabel.add_theme_color_override("font_color", Color("#ffaf5f"))
+	
+func _on_settings_button_button_up() -> void:
+	$settingsButton/settingsButtonLabel.add_theme_color_override("font_color", Color("#ffff64"))
+	Global.toggle_settings()
 
 
 func _on_fullscreen_button_button_up() -> void:

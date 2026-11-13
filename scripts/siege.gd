@@ -13,7 +13,7 @@ var texts = [
 var index = 0
 var active_tab = "attack"
 
-var word_count = 100
+var word_count = Global.word_count
 var current_index = 0
 var last_click_time = 0.0
 
@@ -186,25 +186,43 @@ func demon_atack():
 func create_words():
 	for child in $book/FlowContainer.get_children():
 		child.queue_free()
-	current_index = 0
 	
-	for i in range(word_count):
+	current_index = 0
+	last_click_time = 0.0
+	
+	if Global.gameMode == "default":
+		for i in range(word_count - 1):
+			var btn = Button.new()
+			btn.custom_minimum_size = Vector2(randi_range(20, 100), 20)
+			
+			var style = StyleBoxFlat.new()
+			style.bg_color = Color("#ffff64")
+			style.set_corner_radius_all(0)
+			
+			btn.add_theme_stylebox_override("normal", style)
+			btn.add_theme_stylebox_override("hover", style)
+			btn.add_theme_stylebox_override("pressed", style)
+			
+			btn.pressed.connect(_on_word_clicked.bind(i))
+			$book/FlowContainer.add_child(btn)
+			
+	if Global.gameMode == "lite":
 		var btn = Button.new()
-		btn.custom_minimum_size = Vector2(randi_range(20, 100), 20)
-		
+		btn.custom_minimum_size = $book/FlowContainer.size
+			
 		var style = StyleBoxFlat.new()
 		style.bg_color = Color("#ffff64")
 		style.set_corner_radius_all(0)
-		
+			
 		btn.add_theme_stylebox_override("normal", style)
 		btn.add_theme_stylebox_override("hover", style)
 		btn.add_theme_stylebox_override("pressed", style)
-		
-		btn.pressed.connect(_on_word_clicked.bind(i))
+			
+		btn.pressed.connect(_on_word_clicked.bind(0))
 		$book/FlowContainer.add_child(btn)
 
 func _on_word_clicked(index):
-	if index != current_index:
+	if Global.gameMode == "default" and index != current_index:
 		return
 		
 	var btn = $book/FlowContainer.get_child(index)
@@ -232,9 +250,10 @@ func _on_word_clicked(index):
 			set_mask_hp(mask_hp)
 	
 	$penSound.play()
-	btn.disabled = true
-	btn.modulate.a = 0
 	current_index += 1
+	if Global.gameMode == "default":
+		btn.disabled = true
+		btn.modulate.a = 0
 	
-	if current_index >= word_count:
+	if current_index >= word_count - 1 and Global.gameMode == "default":
 		create_words()

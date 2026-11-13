@@ -8,7 +8,12 @@ var current_track = "track1"
 var current_scene = "menu"
 var obsession = 1.0  
 
+var settings_node = null
+var gameMode = "default"
+var word_count = 100
+
 func _ready():
+	process_mode = Node.PROCESS_MODE_ALWAYS
 	Global.set_scene("menu")
 	music_player = AudioStreamPlayer.new()
 	add_child(music_player)
@@ -71,9 +76,22 @@ func _input(event):
 	if event is InputEventKey:
 		if event.keycode == KEY_F11 and event.pressed and not event.echo:
 			toggle_fullscreen()
+			
+		if event.keycode == KEY_ESCAPE and event.pressed and not event.echo:
+			toggle_settings()
 
 func toggle_fullscreen():
 	if DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_FULLSCREEN:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 	else:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+
+func toggle_settings():
+	if settings_node != null:
+		settings_node.queue_free()
+		settings_node = null
+		get_tree().paused = false
+	else:
+		get_tree().paused = true
+		settings_node = load("res://scenes/settings.tscn").instantiate()
+		get_tree().current_scene.add_child(settings_node)
