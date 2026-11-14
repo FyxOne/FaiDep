@@ -33,7 +33,7 @@ grow_vertical = 2
 theme_override_colors/font_color = Color(1, 1, 0.39215687, 1)
 theme_override_fonts/font = ExtResource("2_ouk20")
 theme_override_font_sizes/font_size = 32
-text = "Настройки"
+text = "menu_settings"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -59,7 +59,7 @@ grow_vertical = 2
 theme_override_colors/font_color = Color(1, 1, 0.39215687, 1)
 theme_override_fonts/font = ExtResource("2_ouk20")
 theme_override_font_sizes/font_size = 32
-text = "Лор игры"
+text = "menu_lore"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -85,7 +85,7 @@ grow_vertical = 2
 theme_override_colors/font_color = Color(1, 1, 0.39215687, 1)
 theme_override_fonts/font = ExtResource("2_ouk20")
 theme_override_font_sizes/font_size = 32
-text = "Играть"
+text = "menu_play"
 horizontal_alignment = 1
 vertical_alignment = 1
 

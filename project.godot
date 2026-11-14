@@ -20,6 +20,7 @@ config/icon="uid://dnfdvon1iopyd"
 [autoload]
 
 Global="*uid://bv21rkfcm0ri4"
+Languages="*uid://cc85rpij8r5d"
 
 [display]
 

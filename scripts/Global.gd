@@ -9,8 +9,10 @@ var current_scene = "menu"
 var obsession = 1.0  
 
 var settings_node = null
+var master_volume = 1.0
 var gameMode = "default"
 var word_count = 100
+var language = "en"
 
 func _ready():
 	process_mode = Node.PROCESS_MODE_ALWAYS
@@ -91,6 +93,8 @@ func toggle_settings():
 		settings_node.queue_free()
 		settings_node = null
 		get_tree().paused = false
+		
+		Languages.translate_all(get_tree().current_scene)
 	else:
 		get_tree().paused = true
 		settings_node = load("res://scenes/settings.tscn").instantiate()

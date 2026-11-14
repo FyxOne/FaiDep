@@ -32,7 +32,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("4_oo4qk")
 theme_override_font_sizes/font_size = 32
-text = "История"
+text = "lore_history"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -55,7 +55,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("4_oo4qk")
 theme_override_font_sizes/font_size = 32
-text = "Досье"
+text = "lore_dossier"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -78,7 +78,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("4_oo4qk")
 theme_override_font_sizes/font_size = 24
-text = "Организация"
+text = "lore_organization"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -125,15 +125,7 @@ size_flags_vertical = 3
 theme_override_colors/font_color = Color(1, 1, 0.39215687, 1)
 theme_override_fonts/font = ExtResource("4_oo4qk")
 theme_override_font_sizes/font_size = 32
-text = "1970-е. Альтернативный мир, в котором нет религии. Вместо нее - магия, которую изучают как науку. Церковь здесь не храм, а организация, занимающаяся изучением этой науки. Священники - ученые, работающие на церковь. Экзорцизм - прикладная дисциплина вроде хирургии, но для души. Главный герой - экзорцист, который изгоняет из людей демонов.
-
-Когда человек теряет веру (не в Бога - религии нет, а в себя, в людей, в будущее), он впадает в отчаяние. Тогда в его сознании начинает говорить голос. Он звучит как его собственный, но он не принадлежит ему. Это состояние можно сравнить с шизофренией. Голос обещает избавление, выход, покой. И человек добровольно соглашается.
-
-Этот голос принадлежит дьяволу. Его цель - заполучить душу человека. Такое явление называется \"Феномен сделки\". При нем человек становится одержимым демоном.
-
-Церковь точно не знает, почему это происходит. Официально это считается психическим расстройством. В народе ходят слухи о продаже души.
-
-Работа экзорцистов заключается в изгнании демона из разума одержимого путём прямого воздействия на подсознание человека. Процесс изгнания демона называется осадой."
+text = "lore_historyLabel"
 autowrap_mode = 2
 text_direction = 1
 
@@ -164,11 +156,7 @@ size_flags_vertical = 3
 theme_override_colors/font_color = Color(1, 1, 0.39215687, 1)
 theme_override_fonts/font = ExtResource("4_oo4qk")
 theme_override_font_sizes/font_size = 32
-text = "Имя: Войд Люмен
-Возраст: 27 лет
-Должность: Священник
-Направление: Экзорцизм
-"
+text = "lore_dossierLabel"
 autowrap_mode = 2
 text_direction = 1
 
@@ -193,13 +181,7 @@ size_flags_vertical = 3
 theme_override_colors/font_color = Color(1, 1, 0.39215687, 1)
 theme_override_fonts/font = ExtResource("4_oo4qk")
 theme_override_font_sizes/font_size = 32
-text = "Внешность: лицо суровое, но не злое. Глаза уставшие, есть лёгкая щетина. Одет в рубашку и поношенный плащ . Галстук всегда ослаблен, верхняя пуговица рубашки расстегнута. Во время осады принимает образ чумного доктора.
-
-Характер: серьезный, но не мрачный. В работе холоден и расчетлив. Страха не показывает, даже когда внутри все идет не по плану. Чувство юмора ироничное.
-
-Особенности: курит дешевые сигареты. Не берет денег за осаду. Считает, что каждый имеет право на помощь. Жизнь других приоритетнее собственной.
-
-Примечание: любит гранатовый сок"
+text = "lore_dossierInfoLabel"
 autowrap_mode = 2
 text_direction = 1
 
@@ -227,10 +209,7 @@ size_flags_vertical = 3
 theme_override_colors/font_color = Color(1, 1, 0.39215687, 1)
 theme_override_fonts/font = ExtResource("4_oo4qk")
 theme_override_font_sizes/font_size = 32
-text = "Название: Церковь
-Тип: Научно-исследовательская организация
-Основана: неизвестно
-Статус: действует"
+text = "lore_organizationLabel"
 autowrap_mode = 2
 text_direction = 1
 
@@ -255,13 +234,7 @@ size_flags_vertical = 3
 theme_override_colors/font_color = Color(1, 1, 0.39215687, 1)
 theme_override_fonts/font = ExtResource("4_oo4qk")
 theme_override_font_sizes/font_size = 32
-text = "Церковь - не религиозное учреждение, а научно-исследовательская организация. Её главная задача - изучение магии и применение этих знаний на практике.
-
-На данный момент церковь сосредоточена на устранении угрозы, а не на поиске её первопричин. Феномен сделки остаётся необъяснённым, но это не мешает бороться с его последствиями.
-
-Экзорцисты работают на выездах. Они прибывают к одержимому на дом, проводят осаду и уезжают. Это опасная работа, так как в случае провала экзорцист сам становится одержимым. Его либо пытаются вылечить, либо сжигают на костре.
-
-Люмен Войд - один из действующих экзорцистов. Он работает безвозмездно, что вызывает у церкви вопросы. Но его не трогают, так как он считается почётным работником."
+text = "lore_organizationInfoLabel"
 autowrap_mode = 2
 text_direction = 1
 

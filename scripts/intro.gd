@@ -1,17 +1,10 @@
 extends Node2D
-var texts = [
-	"В кабинете тихо. Только лампа гудит и страницы шуршат.",
-	"Люмен читает уже второй час. Или третий. Работа экзорциста — это не только выезды. Это ещё и ожидание.",
-	"Он уже хотел закрыть книгу, как телефон на тумбочке зазвонил. Звон разорвал тишину. Войд снял трубку.",
-	"- Люмен слушает.",
-	"Голос на том конце произнёс адрес. Коротко. Без объяснений. Без имени пациента. Без подробностей.",
-	"- Принято.",
-	"Войд положил трубку и открыл книгу. На чистой странице записал данные о вызове."
-]
+var texts = Languages.strings[Global.language]["intro_texts"]
 var index = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	Languages.translate_all(self)
 	$bookSound.play()
 	$labelBox/text.text = texts[index]
 	$AnimationPlayer.play("start_animation")

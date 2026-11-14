@@ -6,9 +6,10 @@ var milliseconds = int((Global.elapsed_time - int(Global.elapsed_time)) * 100)
 var time_string = "%02d:%02d'%02d" % [minutes, seconds, milliseconds]
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	Languages.translate_all(self)
 	Global.set_scene("victory")
 	$AnimationPlayer.play("start_animation")
-	$victoryText/time.text = "Время: " + time_string
+	$victoryText/time.text = Languages.t("time") + time_string
 	await $AnimationPlayer.animation_finished
 	$end.visible = false
 

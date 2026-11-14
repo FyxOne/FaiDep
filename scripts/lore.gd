@@ -3,6 +3,8 @@ extends Node2D
 var active_tab: String = "history"
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	Languages.translate_all(self)
+	
 	$historyTab.button_pressed = true
 	$dossierTab.button_pressed = false
 	$organizationTab.button_pressed = false

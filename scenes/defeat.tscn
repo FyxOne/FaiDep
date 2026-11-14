@@ -61,20 +61,18 @@ offset_bottom = 360.0
 theme_override_colors/font_color = Color(1, 1, 0.33333334, 1)
 theme_override_fonts/font = ExtResource("2_rrsnv")
 theme_override_font_sizes/font_size = 96
-text = "СМЕРТЬ"
-horizontal_alignment = 1
+text = "death"
 vertical_alignment = 1
 
 [node name="text" type="Label" parent="defeatText" unique_id=1961008090]
 layout_mode = 0
 offset_top = 97.0
-offset_right = 598.0
+offset_right = 609.0
 offset_bottom = 134.0
-theme_override_colors/font_color = Color(1, 1, 0.33333334, 1)
+theme_override_colors/font_color = Color(1, 1, 0.39215687, 1)
 theme_override_fonts/font = ExtResource("2_rrsnv")
 theme_override_font_sizes/font_size = 16
-text = "Рассудок Люмена упал и демон завладел его разумом.
-Инквизиция сожгла Войда на костре вместе с его пациентом."
+text = "siege_unsuccess"
 vertical_alignment = 1
 
 [node name="time" type="Label" parent="defeatText" unique_id=1806293172]
@@ -82,7 +80,7 @@ layout_mode = 0
 offset_top = 134.0
 offset_right = 320.0
 offset_bottom = 167.0
-theme_override_colors/font_color = Color(1, 1, 0.33333334, 1)
+theme_override_colors/font_color = Color(1, 1, 0.39215687, 1)
 theme_override_fonts/font = ExtResource("2_rrsnv")
 theme_override_font_sizes/font_size = 16
 vertical_alignment = 1
@@ -99,9 +97,9 @@ color = Color(1, 1, 0.0627451, 1)
 [node name="Button" type="TextureButton" parent="." unique_id=938700795]
 anchors_preset = -1
 offset_left = 88.0
-offset_top = 430.0
+offset_top = 437.0
 offset_right = 338.0
-offset_bottom = 480.0
+offset_bottom = 487.0
 texture_normal = ExtResource("4_31oti")
 texture_pressed = ExtResource("5_gofgq")
 stretch_mode = 5
@@ -116,7 +114,7 @@ grow_vertical = 2
 theme_override_colors/font_color = Color(1, 1, 0.39215687, 1)
 theme_override_fonts/font = ExtResource("2_rrsnv")
 theme_override_font_sizes/font_size = 32
-text = "Заново"
+text = "retry"
 horizontal_alignment = 1
 vertical_alignment = 1
 

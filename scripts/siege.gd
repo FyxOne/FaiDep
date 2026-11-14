@@ -1,15 +1,5 @@
 extends Node2D
-var texts = [
-	"Теперь ты внутри подсознания пациента. Перед тобой демон. Твоя задача - очистить разум пациента от заражениния.",
-	"Маска Люмена защищает его разум от потери рассудка. От воздействия среды маска понемногу теряет прочность",
-	"Если маска разрушится, то Люмен начнёт терят рассудок, и его разумом овладеет демон.",
-	"Убить демона невозможно, но можно оглушить. Пока демон в сознании, то он атакует Люмена. Каждая атака снимает прочность маски.",
-	"В книге три раздела заклинаний:",
-	"Атака - на время оглушает демона.",
-	"Очищение - чистит разум пациента от заражения.",
-	"Починка - восстанавливает маску.",
-	"Удачи."
-]
+var texts = Languages.strings[Global.language]["siege_texts"]
 var index = 0
 var active_tab = "attack"
 
@@ -27,6 +17,7 @@ var is_game_over = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	Languages.translate_all(self)
 	Global.set_scene("siege")
 	Global.set_obsession(obsession)
 	$end.visible = false
@@ -191,7 +182,7 @@ func create_words():
 	last_click_time = 0.0
 	
 	if Global.gameMode == "default":
-		for i in range(word_count - 1):
+		for i in range(word_count):
 			var btn = Button.new()
 			btn.custom_minimum_size = Vector2(randi_range(20, 100), 20)
 			
@@ -255,5 +246,5 @@ func _on_word_clicked(index):
 		btn.disabled = true
 		btn.modulate.a = 0
 	
-	if current_index >= word_count - 1 and Global.gameMode == "default":
+	if current_index >= word_count and Global.gameMode == "default":
 		create_words()

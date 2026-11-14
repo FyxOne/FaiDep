@@ -1,18 +1,11 @@
 extends Node2D
 
-var texts = [
-	"Люмен падает в пустоту. За спиной огромные крылья. Они держат его, но едва.",
-	"Крылья начинают распадаться. С них слетают перья, растворяясь в воздухе. Вокруг Люмена появляются частицы ткани.",
-	"Крылья почти исчезли. На плечах Люмена появляется длинный плащ. Лицо скрывается под маской.",
-	"От крыльев остались только обрывки. Люмен почти полностью покрыт костюмом чумного доктора. Он падает быстрее.",
-	"Жёсткое приземление. Люмен врезается в землю.",
-	"Он поднимается. Вокруг него пространство подсознания.",
-	"Здесь ему предстоит сражаться."
-]
+var texts = Languages.strings[Global.language]["mind_fall_texts"]
 var index = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	Languages.translate_all(self)
 	$labelBox/text.text = texts[index]
 	$fallingSound.play()
 	$AnimationPlayer.play("start_animation")

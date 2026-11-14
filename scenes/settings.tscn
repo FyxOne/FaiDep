@@ -48,14 +48,15 @@ offset_bottom = 720.0
 color = Color(0, 0, 0.12941177, 1)
 
 [node name="header" type="Label" parent="." unique_id=220039163]
-offset_left = 544.0
+offset_left = 480.0
 offset_top = 8.0
-offset_right = 736.0
+offset_right = 800.0
 offset_bottom = 41.0
 theme_override_colors/font_color = Color(1, 1, 0.39215687, 1)
 theme_override_fonts/font = ExtResource("4_gis3k")
 theme_override_font_sizes/font_size = 32
-text = "Настройки"
+text = "settings_header"
+horizontal_alignment = 1
 
 [node name="fullscreenButton" type="TextureButton" parent="." unique_id=785988091]
 offset_left = 1232.0
@@ -97,14 +98,13 @@ offset_bottom = 129.0
 theme_override_colors/font_color = Color(1, 1, 0.39215687, 1)
 theme_override_fonts/font = ExtResource("4_gis3k")
 theme_override_font_sizes/font_size = 32
-text = "Громкость"
+text = "settings_volume"
 
 [node name="volumeSlider" type="HSlider" parent="volumeLabel" unique_id=258311309]
 layout_mode = 0
-offset_left = 207.0
-offset_top = -5.0
-offset_right = 687.0
-offset_bottom = 42.0
+offset_left = 335.0
+offset_right = 815.0
+offset_bottom = 47.0
 theme_override_icons/grabber = ExtResource("2_f4mfi")
 theme_override_icons/grabber_highlight = ExtResource("3_es4n0")
 theme_override_styles/slider = SubResource("StyleBoxLine_svh14")
@@ -116,8 +116,8 @@ value = 1.0
 
 [node name="volumeLevelLabel" type="Label" parent="volumeLabel" unique_id=660137111]
 layout_mode = 0
-offset_left = 703.0
-offset_right = 831.0
+offset_left = 831.0
+offset_right = 959.0
 offset_bottom = 33.0
 theme_override_colors/font_color = Color(1, 1, 0.39215687, 1)
 theme_override_fonts/font = ExtResource("4_gis3k")
@@ -131,14 +131,13 @@ offset_bottom = 193.0
 theme_override_colors/font_color = Color(1, 1, 0.39215687, 1)
 theme_override_fonts/font = ExtResource("4_gis3k")
 theme_override_font_sizes/font_size = 32
-text = "Режим"
+text = "settings_mode"
 
-[node name="OptionButton" type="OptionButton" parent="gameModeLabel" unique_id=1377635566]
+[node name="gameModeOption" type="OptionButton" parent="gameModeLabel" unique_id=1377635566]
 layout_mode = 0
-offset_left = 121.0
-offset_top = 2.0
-offset_right = 361.0
-offset_bottom = 35.0
+offset_left = 455.0
+offset_right = 695.0
+offset_bottom = 33.0
 theme_override_colors/font_color = Color(1, 1, 0.39215687, 1)
 theme_override_colors/font_focus_color = Color(1, 1, 0.39215687, 1)
 theme_override_colors/font_pressed_color = Color(1, 1, 0.39215687, 1)
@@ -151,9 +150,9 @@ alignment = 1
 selected = 0
 allow_reselect = true
 item_count = 2
-popup/item_0/text = "Обычный"
+popup/item_0/text = "settings_default"
 popup/item_0/id = 0
-popup/item_1/text = "Упрощённый"
+popup/item_1/text = "settings_lite"
 popup/item_1/id = 1
 
 [node name="bookWords" type="Label" parent="." unique_id=1181334162]
@@ -164,24 +163,57 @@ offset_bottom = 257.0
 theme_override_colors/font_color = Color(1, 1, 0.39215687, 1)
 theme_override_fonts/font = ExtResource("4_gis3k")
 theme_override_font_sizes/font_size = 32
-text = "Слов на странице"
+text = "settings_words"
 
 [node name="SpinBox" type="SpinBox" parent="bookWords" unique_id=1561233384]
 modulate = Color(1, 1, 0.39215687, 1)
 layout_mode = 0
-offset_left = 355.0
-offset_top = 2.0
-offset_right = 462.0
-offset_bottom = 33.0
+offset_left = 519.0
+offset_right = 626.0
+offset_bottom = 31.0
 theme_override_styles/field_and_buttons_separator = SubResource("StyleBoxFlat_la54i")
+min_value = 1.0
 max_value = 255.0
 value = 100.0
 rounded = true
 alignment = 1
 
+[node name="languageLabel" type="Label" parent="." unique_id=1408014190]
+offset_left = 64.0
+offset_top = 288.0
+offset_right = 171.0
+offset_bottom = 321.0
+theme_override_colors/font_color = Color(1, 1, 0.39215687, 1)
+theme_override_fonts/font = ExtResource("4_gis3k")
+theme_override_font_sizes/font_size = 32
+text = "settings_language"
+
+[node name="languageOption" type="OptionButton" parent="languageLabel" unique_id=1808976213]
+layout_mode = 0
+offset_left = 456.0
+offset_right = 696.0
+offset_bottom = 33.0
+theme_override_colors/font_color = Color(1, 1, 0.39215687, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 0.39215687, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 0.39215687, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 0.39215687, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 0.39215687, 1)
+theme_override_fonts/font = ExtResource("4_gis3k")
+theme_override_styles/normal = SubResource("StyleBoxFlat_4ppmf")
+theme_override_icons/arrow = ExtResource("10_4ppmf")
+alignment = 1
+selected = 0
+allow_reselect = true
+item_count = 2
+popup/item_0/text = "Русский"
+popup/item_0/id = 0
+popup/item_1/text = "English"
+popup/item_1/id = 1
+
 [connection signal="button_up" from="fullscreenButton" to="." method="_on_fullscreen_button_button_up"]
 [connection signal="button_down" from="homeTab" to="." method="_on_home_tab_button_down"]
 [connection signal="button_up" from="homeTab" to="." method="_on_home_tab_button_up"]
 [connection signal="value_changed" from="volumeLabel/volumeSlider" to="." method="_on_volume_slider_value_changed"]
-[connection signal="item_selected" from="gameModeLabel/OptionButton" to="." method="_on_option_button_item_selected"]
+[connection signal="item_selected" from="gameModeLabel/gameModeOption" to="." method="_on_game_mode_option_item_selected"]
 [connection signal="value_changed" from="bookWords/SpinBox" to="." method="_on_spin_box_value_changed"]
+[connection signal="item_selected" from="languageLabel/languageOption" to="." method="_on_language_option_item_selected"]

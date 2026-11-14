@@ -1,20 +1,16 @@
 extends Node2D
 
-var texts = [
-	"Люмен садится на стул у кровати и открывает книгу на нужной странице.",
-	"В книге написано заклинание. Его нужно читать вслух с определённой скоростью - не слишком быстро и не слишком медленно. От этого зависит пульс пациента.",
-	"Если скорость будет правильной - пульс останется ровным, и Люмен сможет войти в подсознание.",
-	"Если нет - пациент умрёт.",
-	"Люмен делает глубокий вдох и начинает."
-]
+var texts = Languages.strings[Global.language]["startSiege_texts"]
 var index = 0
 var word_count = Global.word_count
 var current_index = 0
 var bpm = 75
 var last_click_time = 0.0
+var is_dead = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	Languages.translate_all(self)
 	$labelBox/text.text = texts[index]
 	$AnimationPlayer.play("start_animation")
 	$heart/bpm.text = str(bpm)
@@ -44,7 +40,7 @@ func _on_next_button_button_down() -> void:
 func _on_next_button_button_up() -> void:
 	$labelBox/nextButton/nextButtonLabel.add_theme_color_override("font_color", Color("#ffff64"))
 	
-	if $labelBox/text.text == "Пациент скончался.":
+	if is_dead == true:
 		get_tree().change_scene_to_file("res://scenes/startSiege.tscn")
 		return
 	
@@ -71,7 +67,7 @@ func _on_back_button_button_up() -> void:
 	$labelBox/text.text = texts[index]
 	
 func heartbeat():
-	while (bpm > 40 and bpm < 150) and (current_index < word_count - 1):
+	while (bpm > 40 and bpm < 150) and (current_index < word_count):
 		$pulseAudio.play()
 		$heart.texture = preload("res://resources/textures/heart1.png")
 		await get_tree().create_timer(60.0 / bpm).timeout
@@ -82,7 +78,7 @@ func heartbeat():
 
 func create_words():
 	if Global.gameMode == "default":
-		for i in range(word_count - 1):
+		for i in range(word_count):
 			var btn = Button.new()
 			btn.custom_minimum_size = Vector2(randi_range(20, 100), 20)
 			
@@ -121,12 +117,12 @@ func _on_word_clicked(index):
 	
 	if last_click_time == 0:
 		$penSound.play()
-		$book/words.text = str(word_count - (current_index + 1))
 		last_click_time = now
+		current_index += 1
+		$book/words.text = str(word_count - current_index)
 		if Global.gameMode == "default":
 			btn.disabled = true
 			btn.modulate.a = 0
-			current_index += 1
 		return
 
 	var delta = now - last_click_time
@@ -161,8 +157,9 @@ func _on_word_clicked(index):
 		await get_tree().create_timer(1).timeout
 		$heart.visible = false
 		await get_tree().create_timer(1).timeout
-		$labelBox/text.text = "Пациент скончался."
-		$labelBox/nextButton/nextButtonLabel.text = "Заново"
+		$labelBox/text.text = Languages.t("patient_death")
+		is_dead = true
+		$labelBox/nextButton/nextButtonLabel.text = Languages.t("retry")
 		$labelBox/backButton.visible = false
 		$bookSound.play()
 		$AnimationPlayer.play("death2_animation")
@@ -170,12 +167,12 @@ func _on_word_clicked(index):
 	
 	$penSound.play()
 	current_index += 1
-	$book/words.text = str(word_count - (current_index + 1))
+	$book/words.text = str(word_count - (current_index))
 	if Global.gameMode == "default":
 		btn.disabled = true
 		btn.modulate.a = 0
 	
-	if current_index >= word_count - 1:
+	if current_index >= word_count:
 		$teleportSound.play()
 		$AnimationPlayer.play("end_animation")
 		await $teleportSound.finished

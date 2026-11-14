@@ -216,7 +216,7 @@ grow_vertical = 2
 theme_override_colors/font_color = Color(1, 1, 0.39215687, 1)
 theme_override_fonts/font = ExtResource("5_0naf5")
 theme_override_font_sizes/font_size = 32
-text = "Далее"
+text = "next"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -252,7 +252,7 @@ grow_vertical = 2
 theme_override_colors/font_color = Color(1, 1, 0.39215687, 1)
 theme_override_fonts/font = ExtResource("5_0naf5")
 theme_override_font_sizes/font_size = 32
-text = "Назад"
+text = "back"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -273,13 +273,7 @@ offset_bottom = 734.0
 theme_override_colors/font_color = Color(1, 1, 0.39215687, 1)
 theme_override_fonts/font = ExtResource("5_0naf5")
 theme_override_font_sizes/font_size = 24
-text = "НОВЫЙ ЗАКАЗ
-
-Исполнитель: Войд Люмен
-Цель: Осада
-Пациент: #####
-Местоположение: #####
-Примечание: #####"
+text = "intro_book"
 
 [node name="yesButton" type="TextureButton" parent="book" unique_id=1288848800]
 layout_mode = 1
@@ -302,7 +296,7 @@ grow_vertical = 2
 theme_override_colors/font_color = Color(1, 1, 0.39215687, 1)
 theme_override_fonts/font = ExtResource("5_0naf5")
 theme_override_font_sizes/font_size = 32
-text = "Принять"
+text = "intro_accept"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -327,7 +321,7 @@ grow_vertical = 2
 theme_override_colors/font_color = Color(1, 1, 0.39215687, 1)
 theme_override_fonts/font = ExtResource("5_0naf5")
 theme_override_font_sizes/font_size = 32
-text = "Отмена"
+text = "intro_reject"
 horizontal_alignment = 1
 vertical_alignment = 1
 

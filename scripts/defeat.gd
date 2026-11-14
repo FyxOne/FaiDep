@@ -6,8 +6,9 @@ var milliseconds = int((Global.elapsed_time - int(Global.elapsed_time)) * 100)
 var time_string = "%02d:%02d'%02d" % [minutes, seconds, milliseconds]
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	Languages.translate_all(self)
 	$AnimationPlayer.play("start_animation")
-	$defeatText/time.text = "Время: " + str(time_string)
+	$defeatText/time.text = Languages.t("time") + str(time_string)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
